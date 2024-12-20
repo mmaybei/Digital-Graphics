@@ -1,0 +1,278 @@
+@font-face {
+  font-family: "SM-TGothic";
+  src: url("./fonts/SM3태고딕-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jibaek";
+  src: url("./fonts/Jibaek-260g-beta.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jibaek120";
+  src: url("./fonts/Jibaek-120g-beta.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.progress-container {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 4px;
+  z-index: 1000;
+}
+
+.progress-bar {
+  background-color: #FF1C91;
+  width: 0vw;
+  height: 4px;
+  transition: width 0.5s ease;
+}
+
+.title-container {
+  position: fixed;
+  display: grid;
+  grid-template-columns: 
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 6 + 6 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 3 + 3 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 2 + 1 * 1.1vw);
+  width: 100vw;
+  height: 36px;
+  padding-left:calc((100vw - 200px - 11 * 1.1vw) / 12 * 1 + 1 * 1.1vw + 100px);
+  margin-right: 100px;
+  background-color: #FFFE55;
+  z-index: 2000;
+  align-items: center;
+}
+
+.title-container h1 {
+  font-family: "Jibaek", Aril, sans-serif;
+  font-size: 1.3rem; /* 24px */
+  color: black;
+  margin: 0;
+}
+
+.title-container h1 span {
+  text-decoration: underline;
+  text-underline-offset: 0.28rem;
+  cursor: pointer;
+}
+
+.movie-container {
+  display: none;
+  position: absolute;
+  top: 48px;
+  left: 100px;
+  padding: 16px;
+  width: 400px;
+  background-color: white;
+  border: solid 1px black;
+  z-index: 3000;
+}
+
+.info-container {
+  display: none;
+  position: absolute;
+  top: 48px;
+  left: 800px;
+  padding: 16px;
+  width: 500px;
+  background-color: white;
+  border: solid 1px black;
+  z-index: 3000;
+}
+
+.movie-container p, .info-container p {
+  font-family: "Jibaek120", Aril, sans-serif;
+  font-size: 1.1rem; /* 20px */
+  line-height: 160%;
+  color: black;
+  margin: 0;
+}
+
+.background {
+  position: fixed;
+  display: grid;
+  grid-template-columns: 
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 1 + 0 * 1.1vw + 100px)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 5 + 6 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 4 + 3 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 2 + 2 * 1.1vw + 100px);
+  width: 100vw;
+  height: 100vh;
+}
+
+.background .index-background {
+  background-color: white;
+}
+
+.background .description-background {
+  background-color: white;
+  height: 100%;
+}
+
+.background .dialogue-background {
+  background-color: white;
+  height: 100%;
+}
+
+.background .image-background {
+  background-color: white;
+  height: 100%;
+}
+
+.header {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 1 + 1 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 6 + 6 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 3 + 3 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 2 + 1 * 1.1vw);
+  margin-top: 96px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.header h1 {
+  font-family: "Jibaek", Aril, sans-serif;
+  font-size: 1.3rem; /* 24px */
+  /* color: white; */
+  color: black;
+  margin: 0;
+}
+
+.header .description-title h1 {
+  color: black;
+}
+
+.seperator {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 1 + 0 * 1.1vw + 100px)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 5 + 6 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 4 + 3 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 2 + 2 * 1.1vw + 100px);
+  top: 124px;
+  width: 100vw;
+  height: 1px;
+  /* background-color: white; */
+  background-color: black;
+}
+
+.seperator .description-seperator {
+  background-color: black;
+}
+
+.main {
+  position: absolute;
+  top: 128px;
+  display: grid;
+  grid-template-columns: 
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 1 + 0 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 9 + 10 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 2 + 1 * 1.1vw);
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.main p {
+  font-family: "Jibaek120", Aril, sans-serif;
+  font-size: 1.1rem; /* 20px */
+  line-height: 160%;
+  color: black;
+  margin: 0;
+}
+
+.main .description-container p {
+  color: black;
+}
+
+.main .index-container {
+  margin-right: 1.1vw;
+}
+
+.main .text-container {
+  display: grid;
+  grid-template-columns: 
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 5 + 6 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 4 + 3 * 1.1vw);
+}
+
+.text-container .dialogue-container {
+  display: grid;
+  grid-template-columns: 
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 1 + 0 * 1.1vw)
+    calc((100vw - 200px - 11 * 1.1vw) / 12 * 3 + 2 * 1.1vw);
+  column-gap: 1.1vw;
+}
+
+.dialogue-container .character {
+  text-align: right;
+}
+
+.character div,
+.dialogue div,
+.description-container > div {
+  margin-bottom: 20px;
+}
+
+.description-container .next-button {
+  margin-right: 8px;
+}
+
+.description-container div {
+  border-top: 1px solid black;
+}
+
+.description-container div:first-child {
+  border-top: none;
+}
+
+.description-container > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description-container p {
+  margin-left: 1.1vw;
+}
+
+.main .image-container img {
+  width: 7.5vw;
+  height: 4.7vw;
+}
+
+.index-container .index-button,
+.description-container .next-button {
+  cursor: pointer;
+}
+
+.index-container .index-button:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.description-container .next-button:hover {
+  color: white;
+}
+
+@keyframes blink {
+  0%, 100% { color: black; }
+  50% { color: #FF1C91; }
+}
+
+.blinking {
+  animation: blink 1s steps(1, start) infinite;
+}
